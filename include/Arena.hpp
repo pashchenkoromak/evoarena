@@ -18,6 +18,7 @@ public:
  */
     void fight(std::shared_ptr<IStrategy> a, std::shared_ptr<IStrategy> b, const size_t times_number = DEFAULT_NUMBER_OF_TIMES);
     void showResults(std::ostream& os);
+    std::map<std::shared_ptr<IStrategy>, long long int> getStats() const { return stats; };
 private:
     /**
      * @brief calculate, how to change points of strategy, which makes first decision
@@ -29,8 +30,8 @@ private:
     int calcPoints(const Value& a, const Value& b) const;
     constexpr static size_t DEFAULT_NUMBER_OF_TIMES = 200;
     int BothTrue = 5;
-    int BothFalse = 1;
-    int OneTrue = -5;
+    int BothFalse = 0;
+    int OneTrue = -10;
     int OneFalse = 10;
 
 /**

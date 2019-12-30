@@ -10,7 +10,10 @@ file(GLOB sources
     "src/*.cpp"
 )
 
-add_library(arena_lib ${headers} ${sources})
+file(GLOB strategy_sources
+    "src/Strategy/*.cpp"
+)
+add_library(arena_lib ${headers} ${sources} ${strategy_sources})
 target_include_directories(arena_lib PUBLIC include include/Strategy)
 
 add_executable(${PROJECT_NAME} main.cpp)
